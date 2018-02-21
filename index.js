@@ -28,9 +28,8 @@ module.exports = function(content) {
 			}
 			data = "data:image/svg+xml;base64," + newContent.toString("base64");
 		} else {
-			newContent = newContent.replace(/"/g, "'");
 			newContent = newContent.replace(/\s+/g, " ");
-			newContent = newContent.replace(/[{}\|\\\^~\[\]`"<>#%]/g, function(match) {
+			newContent = newContent.replace(/[{}\|\\\^~\[\]`"<>#%"]/g, function(match) {
 				return '%'+match[0].charCodeAt(0).toString(16).toUpperCase();
 			});
 
